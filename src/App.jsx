@@ -2,22 +2,21 @@ import { useState } from "react";
 import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 
-let todoId = 2;
 let initialTodo = [];
 function App() {
 	let [todos, setTodos] = useState(initialTodo);
 	function handleAddTodo(todoText) {
-		setTodos([
-			...todos,
+		setTodos((prev) => [
+			...prev,
 			{
-				id: todoId++,
+				id: Date.now(),
 				text: todoText,
 			},
 		]);
 	}
 	function handleTodoChange(newTodo) {
-		setTodos(
-			todos.map((todo) => {
+		setTodos((prev) =>
+			prev.map((todo) => {
 				if (newTodo.id != todo.id) {
 					return todo;
 				} else {
@@ -30,7 +29,7 @@ function App() {
 		);
 	}
 	function handleDeleteTodo(todoId) {
-		setTodos(todos.filter((todo) => todo.id != todoId));
+		setTodos(todos.filter((todo) => todo.id !== todoId));
 	}
 	return (
 		<>
