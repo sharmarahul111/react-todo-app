@@ -3,7 +3,9 @@ export default function TodoList({list, onTodoChange, onDeleteTodo}) {
 		<div className="flex items-center max-w-xl border-2 border-blue-500 p-2 rounded-2xl mx-auto">
 			<ul className="w-full">
 				{list.map((li => {
-					return <Task key={li.id} onTodoChange={onTodoChange} onDeleteTodo={onDeleteTodo}>{li.text}</Task>
+					return <Task key={li.id} onTodoChange={onTodoChange} onDeleteTodo={()=>{
+						onDeleteTodo(li.id)
+					}}>{li.text}</Task>
 				}))}
 			</ul>
 		</div>

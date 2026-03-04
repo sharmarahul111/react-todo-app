@@ -23,7 +23,7 @@ function App() {
 
 	}
 	function handleDeleteTodo(todoId){
-
+		setTodos(todos.filter((todo)=> todo.id!=todoId))
 	}
 	return (
 		<>
