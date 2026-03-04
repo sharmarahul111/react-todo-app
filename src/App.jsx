@@ -10,7 +10,14 @@ let initialTodo = [
 function App() {
 	let [todos, setTodos] = useState(initialTodo)
 	function handleAddTodo(todoText){
-
+		setTodos([
+			...todos,
+			{
+				id:todoId++,
+				text: todoText,
+				checked: false
+			}
+		])
 	}
 	function handleTodoChange(){
 
