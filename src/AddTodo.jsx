@@ -8,15 +8,15 @@ export default function AddTodo({ onAddTodo }) {
 				className="text-white h-full w-full outline-none"
 				placeholder="Add Todo..."
 				value={todo}
-				onChange={(e)=>{
-					setTodo(e.target.value)
+				onChange={(e) => {
+					setTodo(e.target.value);
 				}}
 			/>
 			<button
 				className="w-20 font-bold px-7 text-center py-2 bg-blue-500 rounded-2xl"
 				onClick={() => {
-					onAddTodo(todo)
-					setTodo('')
+					onAddTodo(todo);
+					setTodo("");
 				}}
 			>
 				Add

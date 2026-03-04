@@ -33,7 +33,11 @@ function Task({ onTodoChange, onDeleteTodo, li }) {
 	let content = (
 		<li className="w-full flex items-center justify-between h-12 border-b-blue-500 outline-none p-4 hover:bg-blue-800 rounded-2xl">
 			<label className="w-full px-5 py-2 text-lg">{li.text}</label>
-			<Control edit={true} setEdit={setEdit} onDeleteTodo={onDeleteTodo} />
+			<Control
+				edit={true}
+				setEdit={setEdit}
+				onDeleteTodo={onDeleteTodo}
+			/>
 		</li>
 	);
 	if (edit) {
@@ -49,7 +53,11 @@ function Task({ onTodoChange, onDeleteTodo, li }) {
 						});
 					}}
 				/>
-				<Control edit={false} setEdit={setEdit} onDeleteTodo={onDeleteTodo} />
+				<Control
+					edit={false}
+					setEdit={setEdit}
+					onDeleteTodo={onDeleteTodo}
+				/>
 			</li>
 		);
 	}
@@ -59,7 +67,9 @@ function Control({ edit, setEdit, onDeleteTodo }) {
 	return (
 		<>
 			<div className="flex justify-center items-center">
-				<Button onClick={() => setEdit(edit)}>{edit?"Edit":"Save"}</Button>
+				<Button onClick={() => setEdit(edit)}>
+					{edit ? "Edit" : "Save"}
+				</Button>
 				<Button onClick={onDeleteTodo}>Delete</Button>
 			</div>
 		</>
