@@ -4,8 +4,8 @@ import TodoList from "./TodoList";
 
 let todoId = 2
 let initialTodo = [
-	{id:0,text: "buy rice",checked: false},
-	{id:1, text: "potato", checked: true}
+	{id:0,text: "buy rice"},
+	{id:1, text: "potato"}
 ]
 function App() {
 	let [todos, setTodos] = useState(initialTodo)
@@ -15,7 +15,6 @@ function App() {
 			{
 				id:todoId++,
 				text: todoText,
-				checked: false
 			}
 		])
 	}

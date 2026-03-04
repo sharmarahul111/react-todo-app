@@ -16,6 +16,7 @@ export default function AddTodo({ onAddTodo }) {
 				className="w-20 font-bold px-7 text-center py-2 bg-blue-500 rounded-2xl"
 				onClick={() => {
 					onAddTodo(todo)
+					setTodo('')
 				}}
 			>
 				Add

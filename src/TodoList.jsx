@@ -1,4 +1,11 @@
 export default function TodoList({list, onTodoChange, onDeleteTodo}) {
+	if(list.length==0){
+		return (
+		<div className="flex items-center justify-center max-w-xl border-2 border-blue-500 p-2 rounded-2xl mx-auto">
+			<h3 className="text-gray-400 text-lg text-center">Add todo...</h3>
+		</div>
+	);
+	}
 	return (
 		<div className="flex items-center max-w-xl border-2 border-blue-500 p-2 rounded-2xl mx-auto">
 			<ul className="w-full">
@@ -15,7 +22,6 @@ function Task({onTodoChange, onDeleteTodo, children}) {
 
 	return (
 		<li className="w-full flex items-center justify-between h-12 border-b-blue-500 outline-none p-4 hover:bg-blue-400 rounded-2xl">
-			<input type="checkbox" className="w-10 h-10 m-1 accent-blue-500" />
 			<label className="w-full px-5 py-2 text-lg">{children}</label>
 			<div className="flex justify-center items-center">
 				<Button onClick={onTodoChange}>Edit</Button>
