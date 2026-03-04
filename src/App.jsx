@@ -18,8 +18,17 @@ function App() {
 			}
 		])
 	}
-	function handleTodoChange(){
-
+	function handleTodoChange(newTodo){
+		setTodos(todos.map((todo)=>{
+			if(newTodo.id != todo.id){
+				return todo
+			}else{
+				return {
+					...todo,
+					text: newTodo.text
+				}
+			}
+		}))
 	}
 	function handleDeleteTodo(todoId){
 		setTodos(todos.filter((todo)=> todo.id!=todoId))
