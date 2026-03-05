@@ -11,6 +11,7 @@ function App() {
 			{
 				id: Date.now(),
 				text: todoText,
+				checked: false,
 			},
 		]);
 	}
@@ -23,6 +24,7 @@ function App() {
 					return {
 						...todo,
 						text: newTodo.text,
+						checked: newTodo.checked,
 					};
 				}
 			}),

@@ -32,6 +32,17 @@ function Task({ onTodoChange, onDeleteTodo, li }) {
 	let [edit, setEdit] = useState(false);
 	let content = (
 		<li className="w-full flex items-center justify-between h-12 border-b-blue-500 outline-none p-4 hover:bg-blue-800 rounded-2xl">
+			<input
+				type="checkbox"
+				className="w-8 h-8 accent-blue-400"
+				checked={li.checked}
+				onChange={(e) => {
+					onTodoChange({
+						...li,
+						checked: e.target.checked,
+					});
+				}}
+			/>
 			<label className="w-full px-5 py-2 text-lg">{li.text}</label>
 			<Control
 				edit={true}
