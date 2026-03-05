@@ -11,6 +11,12 @@ export default function AddTodo({ onAddTodo }) {
 				onChange={(e) => {
 					setTodo(e.target.value);
 				}}
+				onKeyDown={(e) => {
+					if (e.key == "Enter") {
+						onAddTodo(todo);
+						setTodo("");
+					}
+				}}
 			/>
 			<button
 				className="w-20 font-bold px-7 text-center py-2 bg-blue-500 rounded-2xl"
