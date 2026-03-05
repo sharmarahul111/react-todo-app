@@ -1,6 +1,12 @@
 import { useState } from "react";
 export default function AddTodo({ onAddTodo }) {
 	let [todo, setTodo] = useState("");
+	function handleAddTodo() {
+		if (todo.trim() !== "") {
+			onAddTodo(todo.trim());
+			setTodo("");
+		}
+	}
 	return (
 		<div className="flex items-center max-w-md border-2 border-blue-500 p-2 rounded-2xl mx-auto">
 			<input
@@ -13,17 +19,13 @@ export default function AddTodo({ onAddTodo }) {
 				}}
 				onKeyDown={(e) => {
 					if (e.key == "Enter") {
-						onAddTodo(todo);
-						setTodo("");
+						handleAddTodo();
 					}
 				}}
 			/>
 			<button
 				className="w-20 font-bold px-7 text-center py-2 bg-blue-500 rounded-2xl"
-				onClick={() => {
-					onAddTodo(todo);
-					setTodo("");
-				}}
+				onClick={handleAddTodo}
 			>
 				Add
 			</button>
